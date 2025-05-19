@@ -15,7 +15,7 @@ use Firebase\JWT\Key;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-$secret_key = file_get_contents(ROOT_URL.'config/private.pem');
+$secret_key = file_get_contents(dirname(__DIR__).'/config/private.pem');
 
 define("GST",$_ENV['GST']);
 

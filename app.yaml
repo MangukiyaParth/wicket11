@@ -1,9 +1,8 @@
 runtime: php81
 
+entrypoint: serve index.php
+
 handlers:
   - url: /.*
     script: auto
-
-# Explicitly override Accept-CH
-defaultHeaders:
-  Accept-CH: ""
+    secure: always
