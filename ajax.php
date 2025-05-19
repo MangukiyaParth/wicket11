@@ -41,8 +41,8 @@ if (empty($userObj) && !in_array($current_page, $login_not_needed_pages)) {
 	$gh->Log("Auto Login Needed");
 	if ($auth_token == "" || $should_redirect_to == "") {
 		$gh->Log("Auto Login Failed " . $should_redirect_to);
-		header("Location: ".ADMIN_PANEL_URL."login");
-		exit(0);
+		// header("Location: ".ADMIN_PANEL_URL."login");
+		// exit(0);
 	}
 }
 $useragent = (isset($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] : '';
