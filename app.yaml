@@ -3,3 +3,8 @@ runtime: php81
 handlers:
   - url: /.*
     script: auto
+    secure: always
+
+# Explicitly override Accept-CH
+defaultHeaders:
+  Accept-CH: ""
