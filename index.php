@@ -2,16 +2,16 @@
 
 session_start();
 
-// Define an array of file extensions that should bypass authentication
-$allowed_extensions = ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf', 'map'];
+$uri = $_SERVER['REQUEST_URI'];
+$ext = pathinfo(parse_url($uri, PHP_URL_PATH), PATHINFO_EXTENSION);
 
-// Extract the requested URI and its extension
-$request_uri = $_SERVER['REQUEST_URI'];
-$extension = pathinfo(parse_url($request_uri, PHP_URL_PATH), PATHINFO_EXTENSION);
+$allowed_exts = ['js', 'css', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf', 'map'];
 
-// If the requested file is not a static asset and the user is not authenticated, redirect to login
-if (!in_array($extension, $allowed_extensions) && !isset($_SESSION['user'])) {
-    header("Location: /login");
-    exit;
+// If it's NOT a static file, apply login restriction
+if (!in_array($ext, $allowed_exts)) {
+    if (!isset($_SESSION['user'])) {
+        header("Location: /login");
+        exit;
+    }
 }
 ?>
