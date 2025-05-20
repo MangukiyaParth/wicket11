@@ -1,9 +1,12 @@
 runtime: php81
 
 handlers:
+  # ✅ Serve all static assets from the assets/ folder
   - url: /(.*\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|map))
     static_files: assets/\1
     upload: assets/.*\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|map)
+
+  # ✅ Route all other requests to PHP
   - url: /.*
     script: auto
     secure: always
