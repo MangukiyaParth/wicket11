@@ -8,10 +8,10 @@
 </Files>
 
 RewriteEngine On
-# RewriteBase /product/HTML/android_dashboard/admin_panel/  # Adjust if needed
 
-# Exclude static files from rewrites
-RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg|eot)$ [NC]
+# Skip static files from rewrite rules
+RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg|eot|webp)$ [NC]
+RewriteRule ^ - [L]  # Stop processing if matched
 
 # Force HTTPS (excluding localhost/192.x.x.x)
 RewriteCond %{HTTP_HOST} !^localhost [NC]
@@ -19,7 +19,7 @@ RewriteCond %{HTTP_HOST} !^192\. [NC]
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Rewrite rules
-RewriteRule ^login?$ login.php [L]
-RewriteRule ^logout?$ logout.php [L]
+# Rewrite rules for PHP routes
+RewriteRule ^login/?$ login.php [L]
+RewriteRule ^logout/?$ logout.php [L]
 RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
