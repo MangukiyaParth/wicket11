@@ -10,14 +10,14 @@
 RewriteEngine On
 
 # ✅ STEP 1: Let Apache serve actual files directly (JS, CSS, images, etc.)
-# RewriteCond %{REQUEST_FILENAME} -f [OR]
-# RewriteCond %{REQUEST_FILENAME} -d
-# RewriteRule ^ - [L]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
 # ✅ STEP 2: Your custom routing rules (AFTER static files)
-# RewriteRule ^login/?$ login.php [L]
-# RewriteRule ^logout/?$ logout.php [L]
-# RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
+RewriteRule ^login/?$ login.php [L]
+RewriteRule ^logout/?$ logout.php [L]
+RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
 
 # ✅ STEP 3: (Optional) Catch-all redirect to login if file doesn't exist
 # This line is dangerous unless you handle static file exclusion first

@@ -1,7 +1,5 @@
 runtime: php81
 
-entrypoint: serve index.php
-
 handlers:
   - url: /(.*\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|map))
     static_files: assets/\1
