@@ -1,17 +1,13 @@
 <?php
 
-// session_start();
+$dir = '';
 
-// $uri = $_SERVER['REQUEST_URI'];
-// $ext = pathinfo(parse_url($uri, PHP_URL_PATH), PATHINFO_EXTENSION);
+echo "<h2>Files in $dir:</h2>";
+$files = scandir($dir);
 
-// $allowed_exts = ['js', 'css', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf', 'map'];
-
-// // If it's NOT a static file, apply login restriction
-// if (!in_array($ext, $allowed_exts)) {
-//     if (!isset($_SESSION['user'])) {
-//         header("Location: /login");
-//         exit;
-//     }
-// }
+foreach ($files as $file) {
+    if ($file != '.' && $file != '..') {
+        echo "<a href='/$file'>$file</a><br>";
+    }
+}
 ?>
