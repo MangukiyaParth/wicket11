@@ -189,11 +189,11 @@ class SUPPORT
 
 			$msg = str_replace('\r\n', PHP_EOL, $msg);
 			$msg = PHP_EOL . date('Y-m-d H:i:s') . ": " . $msg;
-			file_put_contents($path1 . date('Y_m_d') . ".txt", $msg, FILE_APPEND | LOCK_EX);
+			// file_put_contents($path1 . date('Y_m_d') . ".txt", $msg, FILE_APPEND | LOCK_EX);
 		} catch (Throwable $t) {
-			file_put_contents("upload/_log/catch_error.txt", PHP_EOL . date('Y-m-d H:i:s') . "  ==>  " . $t->getMessage(), FILE_APPEND | LOCK_EX);
+			// file_put_contents("upload/_log/catch_error.txt", PHP_EOL . date('Y-m-d H:i:s') . "  ==>  " . $t->getMessage(), FILE_APPEND | LOCK_EX);
 		} catch (Exception $e) {
-			file_put_contents("upload/_log/catch_error.txt", PHP_EOL . date('Y-m-d H:i:s') . "  ==>  " . $e->getMessage(), FILE_APPEND | LOCK_EX);
+			// file_put_contents("upload/_log/catch_error.txt", PHP_EOL . date('Y-m-d H:i:s') . "  ==>  " . $e->getMessage(), FILE_APPEND | LOCK_EX);
 		}
 	}
 
