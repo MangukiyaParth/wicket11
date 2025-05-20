@@ -8,6 +8,7 @@ php_flag session.auto_start 1
 </Files>
 
 RewriteEngine on
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
 
 RewriteRule ^login?$ login.php
 RewriteRule ^logout?$ logout.php
