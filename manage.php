@@ -3,7 +3,7 @@ include 'header.php';
 include 'sidebar.php';
 $user_id = $userObj["id"];
 $formname = $current_page."_form";
-$include_javscript_at_bottom .= '<script src="' . $gh->auto_version('/js/manage_datatable.js') . '"></script>';
+$include_javscript_at_bottom .= '<script src="' . $gh->auto_version(ADMIN_PANEL_URL.'js/manage_datatable.js') . '"></script>';
 // $include_javscript_at_bottom .= '<script src="' . $gh->auto_version('js/'.$current_page.'.js') . '"></script>';
 $include_javscript_library_before_custom_script_at_bottom .= "<script>
 	var ORIG_MODULE_NAME = 'Dashboard';

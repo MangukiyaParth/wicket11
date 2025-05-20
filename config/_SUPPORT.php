@@ -805,7 +805,7 @@ class SUPPORT
 
 		$mtime = filemtime($_SERVER['DOCUMENT_ROOT'] . "/" . $file);
 		$filename = preg_replace('{\\.([^./]+)$}', ".$mtime.\$1", $file);
-		return $file;
+		return $filename;
 	}
 
 }

@@ -13,7 +13,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg|eot|webp)$ [NC]
 RewriteRule ^ - [L]  # Stop processing if matched
 
-RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+# RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
 
 # Force HTTPS (excluding localhost/192.x.x.x)
 RewriteCond %{HTTP_HOST} !^localhost [NC]
