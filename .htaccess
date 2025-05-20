@@ -1,5 +1,5 @@
 <IfModule mod_php5.c>
-php_flag session.auto_start 1
+    php_flag session.auto_start 1
 </IfModule>
 
 <Files .env>
@@ -7,20 +7,19 @@ php_flag session.auto_start 1
     Deny from all
 </Files>
 
-RewriteEngine on
-RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+RewriteEngine On
+# RewriteBase /product/HTML/android_dashboard/admin_panel/  # Adjust if needed
 
-#First rewrite any request to the wrong domain to use the correct one (here www.)
-RewriteCond %{HTTP_HOST} !192\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
-RewriteCond %{HTTP_HOST} !^localhost
-RewriteCond %{HTTP_HOST} !^www\.
+# Exclude static files from rewrites
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg|eot)$ [NC]
 
-#Now, rewrite to HTTPS:
+# Force HTTPS (excluding localhost/192.x.x.x)
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteCond %{HTTP_HOST} !^192\. [NC]
 RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} !192\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# RewriteRule ^(.*)$ http://localhost/product/HTML/android_dashboard/admin_panel/$1 [R=301,L]
-RewriteRule ^login?$ login.php
-RewriteRule ^logout?$ logout.php
-RewriteRule ^page/([^/]+)/?$ manage.php?id=$1  [NC,L]
+# Rewrite rules
+RewriteRule ^login?$ login.php [L]
+RewriteRule ^logout?$ logout.php [L]
+RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
