@@ -9,19 +9,21 @@
 
 RewriteEngine On
 
-# Skip static files from rewrite rules
-RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg|eot|webp)$ [NC]
-RewriteRule ^ - [L]  # Stop processing if matched
+# 1. FIRST handle static files - VERY IMPORTANT this comes first
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+# 2. Then handle cache-busting (if needed)
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
 
-# Force HTTPS (excluding localhost/192.x.x.x)
+# 3. Then HTTPS redirect (if needed)
+RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} !^localhost [NC]
 RewriteCond %{HTTP_HOST} !^192\. [NC]
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Rewrite rules for PHP routes
+# 4. Finally, your PHP routes
 RewriteRule ^login/?$ login.php [L]
 RewriteRule ^logout/?$ logout.php [L]
 RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
