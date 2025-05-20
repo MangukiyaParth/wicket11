@@ -6,7 +6,7 @@ $include_javscript_library_before_custom_script_at_bottom .= '<script type="text
 var LOGGED_IN_USER_ID = "' . (($user) ? $user['id'] : 0) . '";
 </script>';
 
-$include_javscript_at_bottom .= '<script src="' . $gh->auto_version('js/logout.js') . '"></script>';
+$include_javscript_at_bottom .= '<script src="' . $gh->auto_version('/js/logout.js') . '"></script>';
 
 
 global $outputjson, $gh, $db, $DEBUG, $const_session_key_value;
