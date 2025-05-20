@@ -1,8 +1,5 @@
 runtime: php81
 
-entrypoint: serve login.php
-
 handlers:
-  - url: /.*
     script: auto
     secure: always
