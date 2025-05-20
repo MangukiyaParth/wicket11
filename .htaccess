@@ -9,21 +9,16 @@
 
 RewriteEngine On
 
-# 1. Serve static files directly (JS, CSS, images, etc.)
+# ✅ STEP 1: Let Apache serve actual files directly (JS, CSS, images, etc.)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# 2. Strip cache-busting hashes from CSS/JS
-RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
-
-# 3. Redirect HTTP to HTTPS (skip for localhost or IPs)
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} !^localhost [NC]
-RewriteCond %{HTTP_HOST} !^192\. [NC]
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# 4. Route PHP pages
+# ✅ STEP 2: Your custom routing rules (AFTER static files)
 RewriteRule ^login/?$ login.php [L]
 RewriteRule ^logout/?$ logout.php [L]
 RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
+
+# ✅ STEP 3: (Optional) Catch-all redirect to login if file doesn't exist
+# This line is dangerous unless you handle static file exclusion first
+# RewriteRule ^.*$ login.php [L]
