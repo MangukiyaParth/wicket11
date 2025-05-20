@@ -38,11 +38,18 @@ $header_not_needed_pages = array();
 $gh->Log("Page View: " . $current_page . " " . $_SERVER['REQUEST_URI'] . " " . print_r($current_user_id, true));
 
 if (empty($userObj) && !in_array($current_page, $login_not_needed_pages)) {
-	$gh->Log("Auto Login Needed");
-	if (($current_page != "login.php") && ($auth_token == "" || $should_redirect_to == "")) {
-		$gh->Log("Auto Login Failed " . $should_redirect_to);
-		header("Location: ".ADMIN_PANEL_URL."login");
-		exit(0);
+	$request_uri = $_SERVER['REQUEST_URI'];
+	$ext = pathinfo(parse_url($request_uri, PHP_URL_PATH), PATHINFO_EXTENSION);
+	$static_exts = ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf', 'map'];
+
+	
+	if (!in_array($ext, $static_exts)) {
+		$gh->Log("Auto Login Needed");
+		if (($current_page != "login.php") && ($auth_token == "" || $should_redirect_to == "")) {
+			$gh->Log("Auto Login Failed " . $should_redirect_to);
+			header("Location: ".ADMIN_PANEL_URL."login");
+			exit(0);
+		}
 	}
 }
 $useragent = (isset($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] : '';
