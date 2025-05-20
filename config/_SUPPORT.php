@@ -148,7 +148,7 @@ class SUPPORT
 		}
 
 		$msg = "";
-		$path = dirname(__DIR__, 1) . "/api_services/";
+		$path = ROOT_URL . "/api_services/";
 		try {
 			if (is_array($__msg)) {
 				$msg = print_r($__msg, true);
