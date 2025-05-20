@@ -245,31 +245,31 @@ include 'theme_settings.php';
     </div><!-- /.modal-dialog -->
 </div>
 
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/vendor.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/jquery-ui.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/handlebars.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/typeahead.bundle.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/nprogress.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/jstz.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/moment.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/bootstrap-datepicker.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/daterangepicker.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/pnotify.custom.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/jquery.dataTables.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/dataTables.bootstrap5.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/select2.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/ckeditor.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/MyUploadAdapter.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/jquery.caret.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/jquery.tag-editor.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/validate.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/app.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/highlight.pack.min.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/hyper-syntax.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/printThis.js"></script>
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/font-awesome.min.js"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/vendor.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/jquery-ui.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/handlebars.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/typeahead.bundle.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/nprogress.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/jstz.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/moment.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/bootstrap-datepicker.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/daterangepicker.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/pnotify.custom.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/jquery.dataTables.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/dataTables.bootstrap5.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/select2.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/ckeditor.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/MyUploadAdapter.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/jquery.caret.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/jquery.tag-editor.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/validate.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/app.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/highlight.pack.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/hyper-syntax.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/printThis.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/font-awesome.min.js'); ?>"></script>
 <!-- fileupload js -->
-<script defer src="<?php echo ADMIN_PANEL_URL; ?>assets/js/dropzone.min.js"></script>
+<script defer src="<?php echo $gh->auto_version(ADMIN_PANEL_URL.'assets/js/dropzone.min.js'); ?>"></script>
 
 <?php
 
