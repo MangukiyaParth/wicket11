@@ -1,24 +1,18 @@
-<IfModule mod_php5.c>
-    php_flag session.auto_start 1
+<IfModule mod_headers.c>
+  Header unset Accept-CH
 </IfModule>
-
-<Files .env>
-    Order allow,deny
-    Deny from all
-</Files>
 
 RewriteEngine On
 
-# ✅ STEP 1: Let Apache serve actual files directly (JS, CSS, images, etc.)
+# Serve static files directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# ✅ STEP 2: Your custom routing rules (AFTER static files)
+# Pretty URLs: /login → login.php
 RewriteRule ^login/?$ login.php [L]
 RewriteRule ^logout/?$ logout.php [L]
-RewriteRule ^page/([^/]+)/?$ manage.php?id=$1 [NC,L]
+RewriteRule ^page/([^/]+)/?$ manage.php?id=$1  [NC,L]
 
-# ✅ STEP 3: (Optional) Catch-all redirect to login if file doesn't exist
-# This line is dangerous unless you handle static file exclusion first
-# RewriteRule ^.*$ login.php [L]
+# Fallback: everything to index.php
+RewriteRule ^ index.php [L]

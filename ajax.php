@@ -45,7 +45,7 @@ if (empty($userObj) && !in_array($current_page, $login_not_needed_pages)) {
 	
 	if (!in_array($ext, $static_exts)) {
 		$gh->Log("Auto Login Needed");
-		if (($current_page != "login.php") && ($auth_token == "" || $should_redirect_to == "")) {
+		if (($current_page != "login.php" && $current_page != "login") && ($auth_token == "" || $should_redirect_to == "")) {
 			// $gh->Log("Auto Login Failed " . $should_redirect_to);
 			// header("Location: ".ADMIN_PANEL_URL."login");
 			// exit(0);

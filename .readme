@@ -1,0 +1,3 @@
+docker build -t wicket11 .
+gcloud builds submit --tag gcr.io/android-admin-460305/wicket11
+gcloud run deploy wicket11 --image gcr.io/android-admin-460305/wicket11 --platform managed --region asia-south1 --allow-unauthenticated

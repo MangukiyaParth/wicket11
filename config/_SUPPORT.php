@@ -5,7 +5,8 @@
 global $debug_mode, $db, $global_postmark_array, $postmark_message_id, $log_mode, $secret_key, $const_session_key_value;
 
 require_once '_SimpleImage.php';
-require dirname(__DIR__).'/vendor/autoload.php';
+require_once dirname(__DIR__).'/vendor/autoload.php';
+// require_once '/vendor/autoload.php';
 
 //For Mail Sent Using SMTP
 use PHPMailer\PHPMailer\PHPMailer;
