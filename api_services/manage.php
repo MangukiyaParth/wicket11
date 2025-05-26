@@ -198,6 +198,7 @@ if (empty($tz_name)) {
 }
 echo "1.1";
 $timezone = new DateTimeZone($tz_name);
+echo "1.1.1";
 $tz_offset = $timezone->getOffset(new DateTime);
 echo "1.2";
 $seconds = $tz_offset;
