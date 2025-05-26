@@ -49,14 +49,14 @@ function login_user()
 			{
 				$update = array();
 				$update['last_logged_in'] = $dateNow;
-				if (!empty($gh->read('tzid', ''))) {
+				// if (!empty($gh->read('tzid', ''))) {
 					
-					$timezone = new DateTimeZone($tz_name);
-					$tz_offset1 = $timezone->getOffset(new DateTime);
-					$seconds = $tz_offset1;
-					$offset = ($seconds / 60) + ($seconds % 60);
-					$update['last_login_offset'] = $offset;
-				}
+				// 	$timezone = new DateTimeZone($tz_name);
+				// 	$tz_offset1 = $timezone->getOffset(new DateTime);
+				// 	$seconds = $tz_offset1;
+				// 	$offset = ($seconds / 60) + ($seconds % 60);
+				// 	$update['last_login_offset'] = $offset;
+				// }
 				if (count($update) > 0) {
 					$db->update("tbl_users", $update, array("id" => $user["id"]));
 				}
