@@ -261,7 +261,7 @@ try {
 	if (!isset($operation) || empty($operation)) {
 		$outputjson['error'] = "Operation missing in request.";
 	} else if (file_exists($operation . ".php")) {
-echo "1.1.1";
+echo $operation . ".php";
 		include($operation . ".php");
 		if (is_callable($operation)) {
 			$op = (isset($_REQUEST['op'])) ? $_REQUEST['op'] : '';
@@ -293,7 +293,7 @@ echo "1.3";
 	}
 } catch (Exception $e) {
 	$gh->Log($e->getMessage());
-	echo "3";
+	echo "3".$e->getMessage();
 }
 
 if ($log_mode == 2 || $debug_mode >= 1) {
