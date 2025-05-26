@@ -1,7 +1,7 @@
 <?php
 
 ini_set('max_execution_time', 300); //300 seconds = 5 minutes
-// error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting(E_ALL ^ E_DEPRECATED);
 // ini_set('display_errors', 1);
 ini_set('mysql.connect_timeout', 300);
 ini_set('default_socket_timeout', 300);
@@ -9,7 +9,7 @@ ini_set("pcre.backtrack_limit", "5000000");
 
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-date_default_timezone_set('Asia/Calcutta');
+date_default_timezone_set('Asia/Kolkata');
 
 if (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 	header('Access-Control-Allow-Origin: *');
@@ -142,7 +142,7 @@ $handler = function (\Throwable $ex) {
 	echo $response_string;
 	return;
 };
-// set_exception_handler($handler);
+set_exception_handler($handler);
 
 
 function ServiceErrorHandler(int $errNo, string $errMsg, string $file, int $line)

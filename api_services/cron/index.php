@@ -4,7 +4,7 @@ ini_set('mysql.connect_timeout', 300);
 ini_set('default_socket_timeout', 300);
 ini_set("pcre.backtrack_limit", "5000000");
 
-date_default_timezone_set('Asia/Calcutta');
+date_default_timezone_set('Asia/Kolkata');
 $start_service = microtime(true);
 
 include_once dirname(__DIR__, 2)."/config/_DEFINE.php";

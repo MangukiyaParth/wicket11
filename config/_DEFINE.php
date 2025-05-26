@@ -1,7 +1,7 @@
 <?php
 // error_reporting(0);
 // error_reporting(E_ALL);
-date_default_timezone_set('Asia/Calcutta');
+date_default_timezone_set('Asia/Kolkata');
 
 // server credentials file
 include_once "MANAGE_CONFIG.php";
