@@ -7,7 +7,7 @@ class MysqliDB
 {
     protected $_mysqli;
 
-    public function __construct($host, $username, $password, $db, $port = 3306)
+    public function __construct($host, $username, $password, $db, $port = 25060)
     {
         if ($port == NULL)
             $port = ini_get('mysqli.default_port');

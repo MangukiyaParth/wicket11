@@ -1,5 +1,5 @@
 <?php
-$include_javscript_at_bottom = '<script src="' . $gh->auto_version('/js/common.js') . '"></script>' . $include_javscript_at_bottom;
+$include_javscript_at_bottom = '<script src="' . $gh->auto_version(ROOT_URL.'/js/common.js') . '"></script>' . $include_javscript_at_bottom;
 $include_javscript_at_bottom = str_replace('<script ', '<script defer ', $include_javscript_at_bottom);
 include 'theme_settings.php';
 ?>
@@ -245,32 +245,32 @@ include 'theme_settings.php';
     </div><!-- /.modal-dialog -->
 </div>
 
-<script defer src="<?php echo $gh->auto_version('/assets/js/vendor.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/jquery-ui.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/hyper-config.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/handlebars.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/typeahead.bundle.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/nprogress.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/jstz.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/moment.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/bootstrap-datepicker.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/daterangepicker.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/pnotify.custom.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/jquery.dataTables.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/dataTables.bootstrap5.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/select2.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/ckeditor.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/MyUploadAdapter.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/jquery.caret.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/jquery.tag-editor.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/validate.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/app.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/highlight.pack.min.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/hyper-syntax.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/printThis.js'); ?>"></script>
-<script defer src="<?php echo $gh->auto_version('/assets/js/font-awesome.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/vendor.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/jquery-ui.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/hyper-config.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/handlebars.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/typeahead.bundle.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/nprogress.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/jstz.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/moment.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/bootstrap-datepicker.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/daterangepicker.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/pnotify.custom.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/jquery.dataTables.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/dataTables.bootstrap5.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/select2.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/ckeditor.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/MyUploadAdapter.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/jquery.caret.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/jquery.tag-editor.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/validate.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/app.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/highlight.pack.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/hyper-syntax.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/printThis.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/font-awesome.min.js'); ?>"></script>
 <!-- fileupload js -->
-<script defer src="<?php echo $gh->auto_version('/assets/js/dropzone.min.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/dropzone.min.js'); ?>"></script>
 
 <?php
 
