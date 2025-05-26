@@ -196,9 +196,10 @@ $curr_time = $gh->read("curr_time", "now");
 if (empty($tz_name)) {
 	$tz_name = "UTC";
 }
+echo "1.1";
 $timezone = new DateTimeZone($tz_name);
 $tz_offset = $timezone->getOffset(new DateTime);
-
+echo "1.2";
 $seconds = $tz_offset;
 $H = floor($seconds / 3600);
 $i = ($seconds / 60) % 60;
@@ -209,15 +210,18 @@ if ($H < 0) {
 }
 $tz_offset = ($seconds > 0 ? "+" : "") . $tz_offset;
 $tz_offset = $tz_offset == "00:00" ? "+00:00" : $tz_offset;
-
+echo "1.3";
 $date = new DateTime("now", new DateTimeZone($tz_name));
 //If we use now, it will check whether DST is on for the now or not. Revised with a date which falls into DST for both Australia and US.
 $tz_date = new DateTime("2019-10-06T05:00:00", new DateTimeZone($tz_name));
-
+echo "1.4";
 $tz_dst = $date->format("I"); // daylight saving in timezone..  returns 1 if ON or 0 if OFF (not applicable)
 $has_tz_dst = $tz_date->format("I");
+echo "1.5";
 $date2 = new DateTime($curr_time, new DateTimeZone($tz_name));
+echo "1.6";
 $diffInSeconds = $date2->getTimestamp() - $date->getTimestamp();
+echo "1.7";
 $user_tz_offset = $diffInSeconds;
 echo "2";
 $request_string = "";
@@ -251,7 +255,7 @@ $request_from_old_version = false;
 // 		$gh->current_user = $userObj;
 // 	}
 // }
-echo "3";
+
 if ($debug_mode >= 1) {
 	$outputjson["query_info"] = array();
 }
@@ -294,7 +298,7 @@ try {
 } catch (Exception $e) {
 	$gh->Log($e->getMessage());
 }
-echo "4";
+
 if ($log_mode == 2 || $debug_mode >= 1) {
 	// append at top of the array..  alternate to array_unshift()
 	$outputjson = array("__REQUEST__" => $request) + $outputjson;
@@ -326,7 +330,7 @@ if ($log_mode == 2) {
 $response_string = str_replace('\r\n', "", $response_string);
 $response_string = str_replace('\/', "/", $response_string);
 echo $response_string;
-echo "5";
+
 function getUsersDetails($id, $is_md5)
 {
 	global $db;
