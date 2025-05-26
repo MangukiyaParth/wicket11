@@ -2,7 +2,7 @@
 
 include('header.php');
 
-$include_javscript_at_bottom .= '<script src="' . $gh->auto_version(ROOT_URL.'/js/login.js') . '"></script>';
+$include_javscript_at_bottom .= '<script src="' . $gh->auto_version(ROOT_URL.'js/login.js') . '"></script>';
 $include_javscript_library_before_custom_script_at_bottom .= '<script type="text/javascript">
 var MODULE_NAME = "login";
 </script>';

@@ -109,7 +109,7 @@ var urlParam = "";
 	<?php echo $include_stylesheet_in_header; ?>
 
 	<!-- Theme Config Js -->
-	<script src="<?php echo $gh->auto_version(ROOT_URL.'/assets/js/vendor.min.js'); ?>"></script>
+	<script src="<?php echo $gh->auto_version(ROOT_URL.'assets/js/vendor.min.js'); ?>"></script>
 	<script>
 		var clevertap = null;
 		var mixpanel = null;
