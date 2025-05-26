@@ -1,3 +1,7 @@
 docker build -t wicket11 .
 gcloud builds submit --tag gcr.io/android-admin-460305/wicket11
 gcloud run deploy wicket11 --image gcr.io/android-admin-460305/wicket11 --platform managed --region asia-south1 --allow-unauthenticated
+
+gcloud services enable cloudscheduler.googleapis.com
+
+gcloud scheduler jobs create http run-daily-task --schedule "30 * * * *" --uri "https://wicket11-74694773643.asia-south1.run.app/api_services/cron/index.php" --http-method GET --time-zone "Asia/Kolkata"
