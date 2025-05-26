@@ -142,7 +142,7 @@ $handler = function (\Throwable $ex) {
 	echo $response_string;
 	return;
 };
-set_exception_handler($handler);
+// set_exception_handler($handler);
 
 
 function ServiceErrorHandler(int $errNo, string $errMsg, string $file, int $line)
