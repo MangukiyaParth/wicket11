@@ -256,6 +256,7 @@ $noti_count_query = "SELECT count(DISTINCT id) as cnt FROM tbl_notification WHER
 $noti_count = $db->execute_scalar($noti_count_query);
 $outputjson["noti_count"] = $noti_count;
 
+echo "1";
 try {
 	if (!isset($operation) || empty($operation)) {
 		$outputjson['error'] = "Operation missing in request.";
@@ -265,7 +266,7 @@ try {
 			$op = (isset($_REQUEST['op'])) ? $_REQUEST['op'] : '';
 			$params = $_REQUEST;
 			$operation($params);
-
+echo "1.1";
 			/***AUDIT LOG START****/
 			$str_arr = explode("_", (string)$operation);
 			if (
@@ -275,15 +276,17 @@ try {
 				|| $str_arr[0] == 'delete'
 				|| $str_arr[0] == 'login'
 				|| $str_arr[0] == 'pdf'
-			) {
+				) {
+echo "1.2";
 				include("log_manage.php");
 				log_manage($params, $outputjson, $operation);
 			}
 			/***AUDIT LOG OVER****/
-
+echo "1.3";
 		} else {
 			$outputjson['error'] = "Operation does not exists";
 		}
+		echo "2";
 	} else {
 		$outputjson['error'] = "file does not exist";
 	}
