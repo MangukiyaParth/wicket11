@@ -187,7 +187,6 @@ function fatalErrorHandler()
 }
 register_shutdown_function('fatalErrorHandler');
 
-echo "1";
 
 $tz_name = $gh->read("tzid", "UTC");
 $tz_name = str_replace(" ", "+", $tz_name); //  here if timezone is Etc/GMT+8  then $gh->read() removes the "+" sign. which creates an issue.
@@ -196,35 +195,27 @@ $curr_time = $gh->read("curr_time", "now");
 if (empty($tz_name)) {
 	$tz_name = "UTC";
 }
-echo "1.1";
-$timezone = new DateTimeZone($tz_name);
-echo "1.1.1";
-$tz_offset = $timezone->getOffset(new DateTime);
-echo "1.2";
-$seconds = $tz_offset;
-$H = floor($seconds / 3600);
-$i = ($seconds / 60) % 60;
-if ($H < 0) {
-	$tz_offset = sprintf("%03d:%02d", $H, $i);
-} else {
-	$tz_offset = sprintf("%02d:%02d", $H, $i);
-}
-$tz_offset = ($seconds > 0 ? "+" : "") . $tz_offset;
-$tz_offset = $tz_offset == "00:00" ? "+00:00" : $tz_offset;
-echo "1.3";
-$date = new DateTime("now", new DateTimeZone($tz_name));
-//If we use now, it will check whether DST is on for the now or not. Revised with a date which falls into DST for both Australia and US.
-$tz_date = new DateTime("2019-10-06T05:00:00", new DateTimeZone($tz_name));
-echo "1.4";
-$tz_dst = $date->format("I"); // daylight saving in timezone..  returns 1 if ON or 0 if OFF (not applicable)
-$has_tz_dst = $tz_date->format("I");
-echo "1.5";
-$date2 = new DateTime($curr_time, new DateTimeZone($tz_name));
-echo "1.6";
-$diffInSeconds = $date2->getTimestamp() - $date->getTimestamp();
-echo "1.7";
-$user_tz_offset = $diffInSeconds;
-echo "2";
+// $timezone = new DateTimeZone($tz_name);
+// $tz_offset = $timezone->getOffset(new DateTime);
+// $seconds = $tz_offset;
+// $H = floor($seconds / 3600);
+// $i = ($seconds / 60) % 60;
+// if ($H < 0) {
+// 	$tz_offset = sprintf("%03d:%02d", $H, $i);
+// } else {
+// 	$tz_offset = sprintf("%02d:%02d", $H, $i);
+// }
+// $tz_offset = ($seconds > 0 ? "+" : "") . $tz_offset;
+// $tz_offset = $tz_offset == "00:00" ? "+00:00" : $tz_offset;
+// $date = new DateTime("now", new DateTimeZone($tz_name));
+// //If we use now, it will check whether DST is on for the now or not. Revised with a date which falls into DST for both Australia and US.
+// $tz_date = new DateTime("2019-10-06T05:00:00", new DateTimeZone($tz_name));
+// $tz_dst = $date->format("I"); // daylight saving in timezone..  returns 1 if ON or 0 if OFF (not applicable)
+// $has_tz_dst = $tz_date->format("I");
+// $date2 = new DateTime($curr_time, new DateTimeZone($tz_name));
+// $diffInSeconds = $date2->getTimestamp() - $date->getTimestamp();
+// $user_tz_offset = $diffInSeconds;
+$user_tz_offset = 0;
 $request_string = "";
 if ($log_mode >= 1) {
 	$request = array();
