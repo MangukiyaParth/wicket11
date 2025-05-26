@@ -1,2 +1,3 @@
 vendor
 api_services/upload/_log
+config/api_services/upload/_log/
