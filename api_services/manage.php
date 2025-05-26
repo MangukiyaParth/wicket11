@@ -6,8 +6,6 @@ ini_set('mysql.connect_timeout', 300);
 ini_set('default_socket_timeout', 300);
 ini_set("pcre.backtrack_limit", "5000000");
 
-echo "1";
-
 date_default_timezone_set('Asia/Kolkata');
 
 if (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
@@ -22,8 +20,6 @@ if (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_ME
 	die();
 }
 
-echo "2";
-
 $start_service = microtime(true);
 
 header("Content-type: application/json; charset=utf-8");
@@ -32,8 +28,6 @@ include_once dirname(__DIR__, 1)."/config/_DEFINE.php";
 include_once dirname(__DIR__, 1)."/config/_SUPPORT.php";
 include_once dirname(__DIR__, 1)."/config/_DATABASE.php";
 include_once dirname(__DIR__, 1)."/config/_CONST.php";
-
-echo "3";
 
 if (IS_PRODUCTION) {
 	error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
@@ -52,13 +46,13 @@ if (WEBSITE_UNDER_MAINTENANCE == true) {
 
 	return;
 }
-echo "4";
+
 array_filter($_POST, 'trim_value');    // the data in $_POST is trimmed
 global $outputjson, $gh, $db, $debug_mode, $const, $log_mode, $tz_name, $tz_offset, $tz_dst, $has_tz_dst, $user_tz_offset, $primary_id, $last_query, $loggedin_user; 
 $db = new MysqliDB($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 $gh = new SUPPORT();
 $const = new ProjectConst();
-echo "5";
+
 $operation = $gh->read("op", "");
 $user_id = $gh->read("user_id", '');
 $user_role_id = $gh->read("user_role_id", '');
@@ -84,7 +78,7 @@ $acc_bank=$const->accgrp_bank;
 $acc_purparty=$const->accgrp_purchaseparty;
 $acc_puracc=$const->accgrp_purchaseacc;
 $role_admin=$const->admin_role_id;
-echo "6";
+
 $login_not_require_operation = array("login_user", "logout_user", "log_manage", "upload_csv", "manage_app_user");
 $loggedin_user = [];
 $md5_user_id = 0;
@@ -121,7 +115,7 @@ if (!in_array($operation, $login_not_require_operation)) {
 		return;
 	}
 }
-echo "7";
+
 if (isset($_POST) && count($_POST) > 0) {
 	foreach ($_POST as $post_key => &$post_value) {
 		if (is_string($post_value) && $post_key != "description") {
@@ -193,6 +187,8 @@ function fatalErrorHandler()
 }
 register_shutdown_function('fatalErrorHandler');
 
+echo "1";
+
 $tz_name = $gh->read("tzid", "UTC");
 $tz_name = str_replace(" ", "+", $tz_name); //  here if timezone is Etc/GMT+8  then $gh->read() removes the "+" sign. which creates an issue.
 $tz_offset = $gh->read("tz", "+00:00");
@@ -223,7 +219,7 @@ $has_tz_dst = $tz_date->format("I");
 $date2 = new DateTime($curr_time, new DateTimeZone($tz_name));
 $diffInSeconds = $date2->getTimestamp() - $date->getTimestamp();
 $user_tz_offset = $diffInSeconds;
-
+echo "2";
 $request_string = "";
 if ($log_mode >= 1) {
 	$request = array();
@@ -255,7 +251,7 @@ $request_from_old_version = false;
 // 		$gh->current_user = $userObj;
 // 	}
 // }
-
+echo "3";
 if ($debug_mode >= 1) {
 	$outputjson["query_info"] = array();
 }
@@ -298,7 +294,7 @@ try {
 } catch (Exception $e) {
 	$gh->Log($e->getMessage());
 }
-
+echo "4";
 if ($log_mode == 2 || $debug_mode >= 1) {
 	// append at top of the array..  alternate to array_unshift()
 	$outputjson = array("__REQUEST__" => $request) + $outputjson;
@@ -330,7 +326,7 @@ if ($log_mode == 2) {
 $response_string = str_replace('\r\n', "", $response_string);
 $response_string = str_replace('\/', "/", $response_string);
 echo $response_string;
-
+echo "5";
 function getUsersDetails($id, $is_md5)
 {
 	global $db;
