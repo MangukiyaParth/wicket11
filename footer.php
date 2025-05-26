@@ -247,6 +247,7 @@ include 'theme_settings.php';
 
 <script defer src="<?php echo $gh->auto_version('/assets/js/vendor.min.js'); ?>"></script>
 <script defer src="<?php echo $gh->auto_version('/assets/js/jquery-ui.js'); ?>"></script>
+<script defer src="<?php echo $gh->auto_version('/assets/js/hyper-config.js'); ?>"></script>
 <script defer src="<?php echo $gh->auto_version('/assets/js/handlebars.min.js'); ?>"></script>
 <script defer src="<?php echo $gh->auto_version('/assets/js/typeahead.bundle.min.js'); ?>"></script>
 <script defer src="<?php echo $gh->auto_version('/assets/js/nprogress.js'); ?>"></script>
