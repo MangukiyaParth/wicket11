@@ -1,13 +1,12 @@
 <?php
 
 ini_set('max_execution_time', 300); //300 seconds = 5 minutes
-error_reporting(E_ALL ^ E_DEPRECATED);
-// ini_set('display_errors', 1);
+
 ini_set('mysql.connect_timeout', 300);
 ini_set('default_socket_timeout', 300);
 ini_set("pcre.backtrack_limit", "5000000");
 
-//error_reporting(E_ERROR | E_WARNING | E_PARSE);
+echo "1";
 
 date_default_timezone_set('Asia/Kolkata');
 
@@ -23,6 +22,8 @@ if (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_ME
 	die();
 }
 
+echo "2";
+
 $start_service = microtime(true);
 
 header("Content-type: application/json; charset=utf-8");
@@ -31,6 +32,8 @@ include_once dirname(__DIR__, 1)."/config/_DEFINE.php";
 include_once dirname(__DIR__, 1)."/config/_SUPPORT.php";
 include_once dirname(__DIR__, 1)."/config/_DATABASE.php";
 include_once dirname(__DIR__, 1)."/config/_CONST.php";
+
+echo "3";
 
 if (IS_PRODUCTION) {
 	error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
@@ -49,13 +52,13 @@ if (WEBSITE_UNDER_MAINTENANCE == true) {
 
 	return;
 }
-
+echo "4";
 array_filter($_POST, 'trim_value');    // the data in $_POST is trimmed
 global $outputjson, $gh, $db, $debug_mode, $const, $log_mode, $tz_name, $tz_offset, $tz_dst, $has_tz_dst, $user_tz_offset, $primary_id, $last_query, $loggedin_user; 
 $db = new MysqliDB($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 $gh = new SUPPORT();
 $const = new ProjectConst();
-
+echo "5";
 $operation = $gh->read("op", "");
 $user_id = $gh->read("user_id", '');
 $user_role_id = $gh->read("user_role_id", '');
@@ -81,7 +84,7 @@ $acc_bank=$const->accgrp_bank;
 $acc_purparty=$const->accgrp_purchaseparty;
 $acc_puracc=$const->accgrp_purchaseacc;
 $role_admin=$const->admin_role_id;
-
+echo "6";
 $login_not_require_operation = array("login_user", "logout_user", "log_manage", "upload_csv", "manage_app_user");
 $loggedin_user = [];
 $md5_user_id = 0;
@@ -118,7 +121,7 @@ if (!in_array($operation, $login_not_require_operation)) {
 		return;
 	}
 }
-
+echo "7";
 if (isset($_POST) && count($_POST) > 0) {
 	foreach ($_POST as $post_key => &$post_value) {
 		if (is_string($post_value) && $post_key != "description") {
